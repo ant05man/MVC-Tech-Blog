@@ -12,6 +12,7 @@ const hbs = exphbs.create({ helpers });
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
+
 const sess = {
     secret: 'secret-key',
     cookie: {},
@@ -29,7 +30,7 @@ app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false })); //changed to false
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public/')));
 
 //app.use(routes);
 app.use(require('./controllers/'));
