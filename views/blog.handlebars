@@ -1,0 +1,47 @@
+<div>
+    <div class="blog-card">
+        <div class="blog-container">
+            <div class="blog-header">
+                <h1>{{title}}</h1>
+            </div>
+            <div class="blog-author">
+                <p class="blog-name">{{user.username}}</p>
+            </div>
+            <div class="blog-content">
+                <p>{{content}}
+            </div>
+            <div>
+                <p class="blog-date">{{format_date createdAt}}</p>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<div class="login-header">
+  <p>This post has {{comments.length}} comments</p>
+</div>
+{{#each comments as |comment|}}
+<div class="comment-card">
+  <h1 class="comment-head">{{comment.user.username}}</h1>
+  <p class="comment-content">{{comment.comment}}</p>
+  <p class="comment-date">{{format_date comment.createdAt}}</p>
+</div>
+{{/each}}
+
+{{#if logged_in}}
+<div class="login-header">
+  <h1>add a comment</h1>
+</div>
+<div>
+  <form id="comment-form{{blog.id}}" class="login-form">
+    <div class="form-group">
+      <label class="custom-field">comment</label>
+      <input id="blog-comment{{id}}" data-type="{{blog.id}}" for="pass" type="text" class="form-control">
+    </div>
+    <button type="submit" data-id="{{id}}" id="commentBtn" class="btn btn-primary custom-btn">post</button>
+</form>
+</div>
+
+{{/if}}
+
+<script src="/js/blog.js"></script>

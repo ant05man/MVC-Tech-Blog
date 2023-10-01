@@ -1,0 +1,60 @@
+<div class="dashboard-container">
+    <div class="dashboard-name">
+        <h1>{{username}}</h1>
+    </div>
+    <div class="dashboard-text">
+        <p>These are the blogs you have created. You can also create, update or delete a blog.</p>
+    </div>
+</div>
+<div>
+  <form class="login-form">
+  <div class="form-group">
+    <label class="custom-field">Blog title</label>
+    <input id="blog-name" type="text" class="form-control" >
+  </div>
+  <div class="form-group">
+    <label class="custom-field">Blog content</label>
+    <input id="blog-content" type="text" class="form-control">
+  </div>
+  <button type="submit" class="btn btn-primary custom-btn blog-btn">new</button>
+</form>
+</div>
+{{#each blogs as |blog|}}
+<div>
+    <div class="blog-card">
+        <div class="blog-container">
+            <div class="blog-header">
+                <h1>{{blog.title}}</h1>
+            </div>
+            <div class="blog-content">
+                <p>{{blog.content}}
+            </div>
+            <div>
+                <p class="blog-date">{{format_date createdAt}}</p>
+            </div>
+            <button type="submit" data-id="{{blog.id}}" class="btn btn-primary custom-btn blog-delete">delete</button>
+            <button type="submit" data-id="{{blog.id}}" class="btn btn-primary custom-btn blog-update">update</button>
+            <div>
+                <form id="update-form{{blog.id}}" class="hidden">
+                    <div class="form-group">
+                        <label class="custom-field">Title</label>
+                        <input id="blog-title{{blog.id}}" type="text" class="form-control" >
+                    </div>
+                    <div class="form-group">
+                        <label class="custom-field">Content</label>
+                        <input id="blog-content{{blog.id}}" type="text" class="form-control">
+                    </div>
+                    <button type="submit" data-id="{{blog.id}}" id="saveBtn" class="btn btn-primary custom-btn">save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}
+
+<script 
+  src="https://code.jquery.com/jquery-3.6.1.min.js" 
+  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" 
+  crossorigin="anonymous">
+</script>
+<script src="/js/dashboard.js"></script>
