@@ -5,9 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "seeds": "node seeds/index.js"
+    "start": "node server.js"
   },
+  "homepage": "https://github.com/ant05man/MVC-Tech-Blog",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.4",
