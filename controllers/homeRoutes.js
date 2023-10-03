@@ -91,9 +91,9 @@ router.get('/signup', (req,res) => {
 router.get('/login',  (req, res) => {
     if (req.session.logged_in){
         res.redirect('/dashboard');
-        return
+    }else {
+    res.render('login');
     }
-    res.render('login')
-})
+});
 
 module.exports = router;
