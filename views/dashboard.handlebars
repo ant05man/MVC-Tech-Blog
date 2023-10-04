@@ -30,7 +30,7 @@
                 <p>{{blog.content}}
             </div>
             <div>
-                <p class="blog-date">{{format_date createdAt}}</p>
+                <p class="blog-date">{{format_date blog.date_created}}</p>
             </div>
             <button type="submit" data-id="{{blog.id}}" class="btn btn-primary custom-btn blog-delete">delete</button>
             <button type="submit" data-id="{{blog.id}}" class="btn btn-primary custom-btn blog-update">update</button>
