@@ -16,3 +16,5 @@
 -  create and update .env variables
 
 ## Usage
+![Screenshot (37)](https://github.com/ant05man/MVC-Tech-Blog/assets/132954354/546797c9-f508-4b8a-81e1-b9062ddbec4e)
+![Screenshot (40)](https://github.com/ant05man/MVC-Tech-Blog/assets/132954354/f6f8f35c-b266-4b9f-9dfe-d76b693a951b)
