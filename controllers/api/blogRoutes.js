@@ -1,3 +1,4 @@
+// USING CRUD(Create,Read,Update,Delete)
 const router = require('express').Router();
 const { Blog, User, Comment } = require('../../models');
 
