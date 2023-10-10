@@ -7,8 +7,13 @@ router.get('/', async (req, res) => {
     try {
         const blogData = await Blog.findAll({ include: User
         })
+        // takes the data from the blogData and maps it to an array of plain JS objects('blogs'). Simplifies data for rendering
         const blogs = blogData.map((blogs) => blogs.get({ plain: true }));
+        // renders HTML template named 'home'
         res.render('home', {
+            // object being passed to the template, containing two key-value pairs
+            // blogs - variable that holds an array of blogData
+            // logged_in - variable that is boolean value indicating whether the user is logged in or not derived from req.session.logged_in if user is logged in, logged_in will be true
             blogs,
             logged_in: req.session.logged_in,
         });
@@ -16,8 +21,11 @@ router.get('/', async (req, res) => {
         res.status(500).json(err)
     }
 });
+
 router.get('/blog/:id', async (req, res) => {
     try {
+        // code fetches data for a specific blog post using its primary key(Pk) specified in req.params.id using Sequelize's findByPk
+        // also specifies query should include data from the 'User' model(author of the blog) and associated 'Comment' models
         const blogData = await Blog.findByPk(req.params.id, {
             include:[
                   User,
@@ -26,6 +34,7 @@ router.get('/blog/:id', async (req, res) => {
                 },
               ]
         });
+        // once blog data is retrieved, its converted to a plain JS object using .get({plain: true});
         const blog = blogData.get({ plain: true });
         res.render('blog', {
             blog,

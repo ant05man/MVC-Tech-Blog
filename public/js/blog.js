@@ -1,6 +1,10 @@
+// this is for the form submission event
+// takes an 'event' parameter
 const newCommentSave = async (event) => {
+    // prevents the form from reloading
     event.preventDefault();
 
+    // extracts value of 'data-id' from HTML element that triggered the event
     const blog_id = event.target.getAttribute('data-id');
 
     if(event.target.hasAttribute('data-id')){
